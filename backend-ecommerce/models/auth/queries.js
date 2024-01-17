@@ -8,6 +8,12 @@ const insertUser = (email, username, password, admin) => sql.unsafe`
     )
 `;
 
+const selectUser = (email) => sql.unsafe`
+    SELECT * FROM users
+    WHERE email = ${email}
+`;
+
 module.exports = {
   insertUser,
+  selectUser,
 };
