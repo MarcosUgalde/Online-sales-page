@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS users_x_products;
+DROP TABLE IF EXISTS customers_x_products;
 DROP TABLE IF EXISTS products;
 DROP TABLE IF EXISTS users;
 
@@ -22,9 +22,17 @@ CREATE TABLE IF NOT EXISTS products (
     votes_by_customers INTEGER DEFAULT 0
 );
 
-CREATE TABLE IF NOT EXISTS users_x_products (
+CREATE TABLE IF NOT EXISTS customers (
     id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
-    user_id uuid NOT NULL REFERENCES users
+    customer_email TEXT NOT NULL UNIQUE,
+    customer_username TEXT NOT NULL UNIQUE,
+    password TEXT NOT NULL,
+    total_purchases INTEGER DEFAULT 0
+);
+
+CREATE TABLE IF NOT EXISTS customers_x_products (
+    id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
+    customer_id uuid NOT NULL REFERENCES customers
         ON UPDATE CASCADE
         ON DELETE CASCADE,
     product_id uuid NOT NULL REFERENCES products
