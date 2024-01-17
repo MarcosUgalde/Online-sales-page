@@ -11,15 +11,15 @@ app.use(cors(options));
 app.use(express.json());
 app.use(cookieParser());
 
-// const routes = require('./routes')
+const routes = require("./routes");
 
-// app.use(routes(db))
+app.use(routes(db));
 
 app.use((_, __, next) => {
   next(errors[404]);
 });
 
-app.use(({ statusCOde, error }, _, res, __) => {
+app.use(({ statusCode, error }, _, res, __) => {
   res.status(statusCode).json({
     success: false,
     message: error.message,
