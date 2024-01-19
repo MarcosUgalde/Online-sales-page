@@ -1,4 +1,8 @@
-const { insertProduct, selectOneProduct } = require("./queries");
+const {
+  insertProduct,
+  selectOneProduct,
+  selectProducts,
+} = require("./queries");
 
 const addProduct =
   (db) => async (product_name, description, genre, quantity) => {
@@ -36,7 +40,25 @@ const getOneProduct = (db) => async (id) => {
   }
 };
 
+const getProducts = (db) => async () => {
+  try {
+    const response = await db.query(selectProducts());
+
+    return {
+      ok: true,
+      response: response.rows,
+    };
+  } catch (error) {
+    console.info("Get all pruducts error", error.message);
+    return {
+      ok: false,
+      message: error.message,
+    };
+  }
+};
+
 module.exports = {
   addProduct,
   getOneProduct,
+  getProducts,
 };

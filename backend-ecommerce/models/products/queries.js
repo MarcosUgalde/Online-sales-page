@@ -18,7 +18,12 @@ const selectOneProduct = (id) => sql.unsafe`
         WHERE products.id = ${id}
 `;
 
+const selectProducts = () => sql.unsafe`
+        SELECT * FROM products
+`;
+
 module.exports = {
   insertProduct,
   selectOneProduct,
+  selectProducts,
 };
