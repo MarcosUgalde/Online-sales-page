@@ -4,6 +4,7 @@ const {
   selectProducts,
   updateProducts,
   updateRatings,
+  deleteProduct,
 } = require("./queries");
 
 const addProduct =
@@ -96,10 +97,27 @@ const editRating = (db) => async (score, votes, id) => {
   }
 };
 
+const eliminateProduct = (db) => async (id) => {
+  try {
+    await db.query(deleteProduct(id));
+
+    return {
+      ok: true,
+    };
+  } catch (error) {
+    console.info("Delete product error: ", error.message);
+    return {
+      ok: false,
+      message: error.message,
+    };
+  }
+};
+
 module.exports = {
   addProduct,
   getOneProduct,
   getProducts,
   editProduct,
   editRating,
+  eliminateProduct,
 };

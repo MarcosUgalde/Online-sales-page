@@ -46,10 +46,16 @@ const updateRatings = (score, votes, id) => sql.unsafe`
     WHERE id = ${id}
 `;
 
+const deleteProduct = (id) => sql.unsafe`
+    DELETE FROM products
+    WHERE id = ${id}
+`;
+
 module.exports = {
   insertProduct,
   selectOneProduct,
   selectProducts,
   updateProducts,
   updateRatings,
+  deleteProduct,
 };
