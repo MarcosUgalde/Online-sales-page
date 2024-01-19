@@ -38,9 +38,18 @@ const updateProducts = (
     WHERE id = ${id}
 `;
 
+const updateRatings = (score, votes, id) => sql.unsafe`
+    UPDATE products
+    SET
+    score = ${score},
+    votes_by_customers = ${votes}
+    WHERE id = ${id}
+`;
+
 module.exports = {
   insertProduct,
   selectOneProduct,
   selectProducts,
   updateProducts,
+  updateRatings,
 };

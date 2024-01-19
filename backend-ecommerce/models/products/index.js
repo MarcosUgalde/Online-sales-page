@@ -3,6 +3,7 @@ const {
   selectOneProduct,
   selectProducts,
   updateProducts,
+  updateRatings,
 } = require("./queries");
 
 const addProduct =
@@ -71,12 +72,34 @@ const editProduct =
       };
     } catch (error) {
       console.info("Update product error: ", error.message);
+      return {
+        ok: false,
+        message: error.message,
+      };
     }
   };
+
+const editRating = (db) => async (score, votes, id) => {
+  try {
+    const response = await db.query(updateRatings(score, votes, id));
+
+    return {
+      ok: true,
+      response: response.rows,
+    };
+  } catch (error) {
+    console.info("Update ratings error: ", error.message);
+    return {
+      ok: false,
+      message: error.message,
+    };
+  }
+};
 
 module.exports = {
   addProduct,
   getOneProduct,
   getProducts,
   editProduct,
+  editRating,
 };
