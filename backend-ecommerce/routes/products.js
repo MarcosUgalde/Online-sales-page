@@ -9,6 +9,7 @@ module.exports = (db) => {
   router.get("/:id", productControllers.getOneProduct(db));
   router.put("/score/:id", authorizer(), productControllers.updateRating(db));
   router.put("/:id", authorizer(), productControllers.updateProduct(db));
+  router.delete("/:id", authorizer(), productControllers.deleteProduct(db));
 
   return router;
 };
