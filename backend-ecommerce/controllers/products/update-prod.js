@@ -12,7 +12,7 @@ module.exports = (db) => async (req, res, next) => {
     id
   );
 
-  if (!updated) return next(errors[500]);
+  if (!updated.ok) return next(errors[500]);
 
   res.status(200).json({
     success: true,
