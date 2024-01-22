@@ -1,5 +1,6 @@
 import axios from "axios";
 import { register, signin, logout } from "./auth";
+import { info } from "./user";
 
 const client = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
@@ -12,4 +13,8 @@ const auth = {
   logout: logout(client),
 };
 
-export { auth };
+const user = {
+  info: info(client),
+};
+
+export { auth, user };
