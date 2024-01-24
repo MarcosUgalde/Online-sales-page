@@ -1,5 +1,6 @@
 import { useProducts } from "../../hooks"
 import Item from "../../components/Item"
+import Styled from './styles'
 
 function Landing() {
   
@@ -17,11 +18,11 @@ function Landing() {
         {response?.data?.map((product) => {
           return (
             <>
-              <ul>
+              <Styled.List>
                 <li>
                   <Item product={product} />
                 </li>
-              </ul>
+              </Styled.List>
             </>
           )
         })}
