@@ -8,7 +8,7 @@ const Body =  styled.section`
     }
 `
 
-const Form = styled.Form`
+const Form = styled.form`
     display: flex;
     flex-direction: column;
     align-items: center;
