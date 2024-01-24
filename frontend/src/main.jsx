@@ -5,6 +5,7 @@ import { Route, Switch, Redirect } from 'wouter'
 import Provider from './context/Provider.jsx'
 import Landing from './pages/Landing/index..jsx'
 import Login from './pages/Login/index.jsx'
+import ProductInfo from './pages/Productinfo/index.jsx'
 
 const Main = () => {
   return (
@@ -12,6 +13,7 @@ const Main = () => {
       <Switch>
         <Route path='/' component={Landing}/>
         <Route path='/login' component={Login} />
+        <Route path='/product-info/:id' component={ProductInfo} />
         <Redirect to='/' />
       </Switch>
     </Provider>

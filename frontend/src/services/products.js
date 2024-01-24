@@ -11,7 +11,7 @@ export const allProducts = (client) => async () => {
 
 export const oneProduct = (client) => async (id) => {
   try {
-    const { data: response } = await client.get(`/product/${id}`);
+    const { data: response } = await client.get(`/products/${id}`);
     console.info("Product info: ", response);
     return response;
   } catch (error) {
