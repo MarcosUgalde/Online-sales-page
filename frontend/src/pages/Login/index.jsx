@@ -1,3 +1,4 @@
+import Styled from './styles'
 import { useForm } from "react-hook-form"
 import { useMutation, useQueryClient } from "react-query"
 import { useLocation } from "wouter"
@@ -32,21 +33,25 @@ const Login = () => {
     const { errors } = login
 
     return (
-        <>
+        <Styled.Body>
             <h1>Login Page</h1>
-            <form onSubmit={handleSubmit(handleForm)}>
-                <label htmlFor="email">Insert a valid email</label>
-                <input type="text" name="email" id="email" placeholder="" {...register('email', {required: true})} />
-                <p>{formState.errors && errors[formState.errors?.email?.type]}</p>
-                <label htmlFor="password">Insert password</label>
-                <input type="password" name="password" id="password" {...register('password', {required: true, minLength: 4})} />
-                <p>{formState.errors && errors[formState.errors?.password?.type]}</p>
+            <Styled.Form onSubmit={handleSubmit(handleForm)}>
+                <Styled.Field>
+                    <label htmlFor="email">Insert a valid email</label>
+                    <input type="text" name="email" id="email" placeholder="" {...register('email', {required: true})} />
+                    <p>{formState.errors && errors[formState.errors?.email?.type]}</p>
+                </Styled.Field>
+                <Styled.Field>
+                    <label htmlFor="password">Insert password</label>
+                    <input type="password" name="password" id="password" {...register('password', {required: true, minLength: 4})} />
+                    <p>{formState.errors && errors[formState.errors?.password?.type]}</p>
+                </Styled.Field>
                 <input type="submit" />
-            </form>
+            </Styled.Form>
             <footer>
-                Register
+                Create user
             </footer>
-        </>
+        </Styled.Body>
     )
 }
 
