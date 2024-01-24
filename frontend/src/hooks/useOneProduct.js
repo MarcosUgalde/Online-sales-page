@@ -5,6 +5,6 @@ export const useOneProduct = (props) => {
   const { data, isLoading } = useQuery(["product", props?.productId], () =>
     products.oneProduct(props?.productId)
   );
-  console.log(data?.content);
+  console.log("Hook response: ", data?.content);
   return { data, isLoading };
 };
