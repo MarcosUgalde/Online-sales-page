@@ -17,7 +17,8 @@ const Login = () => {
     const { mutate } = useMutation({
         mutationFn: auth.signin,
         onSuccess: (response) => {
-            if(response.success) queryClient.invalidateQueries({ queryKey: ['user']}) && setLocation('/')
+            console.log(response)
+            if(response.success) queryClient.invalidateQueries({ queryKey: ['user']}) && setLocation('/auth/insert-product')
         }
     })
 
@@ -27,7 +28,8 @@ const Login = () => {
     }
 
     useEffect(() => {
-        data && setLocation('/')
+        data && setLocation('/auth/insert-product')
+        console.log('data en useEffect: ', data)
     }, [data])
 
     const { errors } = login
@@ -38,7 +40,7 @@ const Login = () => {
             <Styled.Form onSubmit={handleSubmit(handleForm)}>
                 <Styled.Field>
                     <label htmlFor="email">Insert a valid email</label>
-                    <input type="text" name="email" id="email" placeholder="" {...register('email', {required: true})} />
+                    <input type="text" name="email" id="email" placeholder="example@gmail.com" {...register('email', {required: true})} />
                     <p>{formState.errors && errors[formState.errors?.email?.type]}</p>
                 </Styled.Field>
                 <Styled.Field>

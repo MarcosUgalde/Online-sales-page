@@ -1,5 +1,4 @@
 const InsertProduct = () => {
-    console.log('Rendered')
     return (
         <>
             <h2>Add a new product</h2>
@@ -12,6 +11,7 @@ const InsertProduct = () => {
                 <input type="text" name="genre" id="genre" />
                 <label htmlFor="quantity">Quantity</label>
                 <input type="text" name="quantity" id="quantity" />
+                <input type="submit" />
             </form>
             <footer>Componente de contacto</footer>
         </>

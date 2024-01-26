@@ -7,13 +7,21 @@ const ProductInfo = () => {
     
     return (
         <>
-            <h1>One product page</h1>
-            <p>{product.data.data[0].product_name}</p>
-            <p>{product.data.data[0].description}</p>
-            <p>{product.data.data[0].genre}</p>
-            <p>{product.data.data[0].quantity}</p>
-            <p>{product.data.data[0].score}</p>
-            <p>{product.data.data[0].votes_by_customers}</p>
+            <h2>{product?.data?.data[0].product_name}</h2>
+            <p>Score: {product?.data?.data[0].score} / 5</p>
+            <p>Total votes by customers: <b>{product?.data?.data[0].votes_by_customers}</b> </p>
+            <section>
+                <h4>Description</h4>
+                <p><em>{product?.data?.data[0].description}</em></p>
+            </section>
+            <section>
+                <h4>Genre</h4>
+                <p>{product?.data?.data[0].genre}</p>
+            </section>
+            <section>
+                <h4>Uds available</h4>
+                <p>{product?.data?.data[0].quantity}</p>
+            </section>
         </>
     )
 }
