@@ -19,3 +19,14 @@ export const oneProduct = (client) => async (id) => {
     return null;
   }
 };
+
+export const insertProduct = (client) => async (params) => {
+  try {
+    const { data } = await client.post("/products/new", params);
+    console.info("Product insertion data: ", data);
+    return data;
+  } catch (error) {
+    console.info("Product insertion error: ", error.message);
+    return { success: false };
+  }
+};
