@@ -6,6 +6,7 @@ import {
   oneProduct,
   insertProduct,
   updateProduct,
+  deleteProduct,
 } from "./products";
 
 const client = axios.create({
@@ -28,6 +29,7 @@ const products = {
   oneProduct: oneProduct(client),
   insertProduct: insertProduct(client),
   updateProduct: updateProduct(client),
+  deleteProduct: deleteProduct(client),
 };
 
 export { auth, user, products };

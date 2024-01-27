@@ -5,3 +5,4 @@ export { useOneProduct } from "./useOneProduct";
 export { useId } from "./useId";
 export { useInsertion } from "./useInsertion";
 export { useUpdate } from "./useUpdate";
+export { useDelete } from "./useDelete";

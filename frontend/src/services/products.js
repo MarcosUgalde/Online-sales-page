@@ -41,3 +41,14 @@ export const updateProduct = (client) => async (params) => {
     return { success: false };
   }
 };
+
+export const deleteProduct = (client) => async (params) => {
+  try {
+    const { data } = await client.delete(`/products/${params}`, params);
+    console.info("Delete product completed");
+    return data;
+  } catch (error) {
+    console.info("Delete product error", error.message);
+    return { success: false };
+  }
+};
