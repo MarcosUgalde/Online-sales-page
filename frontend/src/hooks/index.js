@@ -4,5 +4,6 @@ export { useProducts } from "./useProducts";
 export { useOneProduct } from "./useOneProduct";
 export { useId } from "./useId";
 export { useInsertion } from "./useInsertion";
+export { useRating } from "./useRating";
 export { useUpdate } from "./useUpdate";
 export { useDelete } from "./useDelete";
