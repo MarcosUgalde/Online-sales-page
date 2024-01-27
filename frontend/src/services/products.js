@@ -31,6 +31,19 @@ export const insertProduct = (client) => async (params) => {
   }
 };
 
+export const ratingProduct = (client) => async (params) => {
+  try {
+    const { data } = await client.pit(
+      `/products/score/${params.productId}`,
+      params
+    );
+    console.info("Product rating completed");
+    return data;
+  } catch (error) {
+    console.info("Rating product error: ", error.message);
+  }
+};
+
 export const updateProduct = (client) => async (params) => {
   try {
     const { data } = await client.put(`/products/${params.productId}`, params);

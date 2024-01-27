@@ -5,6 +5,7 @@ import {
   allProducts,
   oneProduct,
   insertProduct,
+  ratingProduct,
   updateProduct,
   deleteProduct,
 } from "./products";
@@ -28,6 +29,7 @@ const products = {
   allProducts: allProducts(client),
   oneProduct: oneProduct(client),
   insertProduct: insertProduct(client),
+  ratingProduct: ratingProduct(client),
   updateProduct: updateProduct(client),
   deleteProduct: deleteProduct(client),
 };
