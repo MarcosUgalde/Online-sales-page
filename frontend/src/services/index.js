@@ -1,7 +1,12 @@
 import axios from "axios";
 import { register, signin, logout } from "./auth";
 import { info } from "./user";
-import { allProducts, oneProduct, insertProduct } from "./products";
+import {
+  allProducts,
+  oneProduct,
+  insertProduct,
+  updateProduct,
+} from "./products";
 
 const client = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
@@ -22,6 +27,7 @@ const products = {
   allProducts: allProducts(client),
   oneProduct: oneProduct(client),
   insertProduct: insertProduct(client),
+  updateProduct: updateProduct(client),
 };
 
 export { auth, user, products };

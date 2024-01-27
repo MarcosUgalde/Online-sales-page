@@ -30,3 +30,14 @@ export const insertProduct = (client) => async (params) => {
     return { success: false };
   }
 };
+
+export const updateProduct = (client) => async (params) => {
+  try {
+    const { data } = await client.put(`/products/${params.productId}`);
+    console.info("Product update completed: ", data);
+    return data;
+  } catch (error) {
+    console.info("Product update error: ", error.message);
+    return { success: false };
+  }
+};
