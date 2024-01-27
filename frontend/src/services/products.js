@@ -33,7 +33,7 @@ export const insertProduct = (client) => async (params) => {
 
 export const updateProduct = (client) => async (params) => {
   try {
-    const { data } = await client.put(`/products/${params.productId}`);
+    const { data } = await client.put(`/products/${params.productId}`, params);
     console.info("Product update completed: ", data);
     return data;
   } catch (error) {
