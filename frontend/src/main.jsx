@@ -7,6 +7,7 @@ import Landing from './pages/Landing/index..jsx'
 import Login from './pages/Login/index.jsx'
 import ProductInfo from './pages/Productinfo/index.jsx'
 import InsertProduct from './pages/Insertproduct/index.jsx'
+import Update from './pages/Updateproduct/index.jsx'
 
 const Main = () => {
   return (
@@ -17,6 +18,9 @@ const Main = () => {
         <Route path='/login' component={Login} />
         <Route path='/auth/insert-product'>
           <Guard component={InsertProduct} />
+        </Route>
+        <Route path='/auth/update/:id'>
+          <Guard component={Update} />
         </Route>
         <Redirect to='/' />
       </Switch>
