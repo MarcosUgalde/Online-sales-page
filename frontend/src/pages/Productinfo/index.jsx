@@ -47,7 +47,7 @@ const ProductInfo = () => {
                 <button onClick={() => openDeleteModal(id)}>Delete</button>
             </div>
 
-            <Rating />
+            <Rating id={id} />
 
             {isModalVisible && (
                 <DeleteModal productId={productIdToDelete} isVisible={isModalVisible} onClose={() => setIsModalVisible(false)} onDelete={handleDelete} />
