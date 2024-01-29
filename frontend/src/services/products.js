@@ -33,7 +33,7 @@ export const insertProduct = (client) => async (params) => {
 
 export const ratingProduct = (client) => async (params) => {
   try {
-    const { data } = await client.pit(
+    const { data } = await client.put(
       `/products/score/${params.productId}`,
       params
     );
