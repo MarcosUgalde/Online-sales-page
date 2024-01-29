@@ -1,6 +1,7 @@
 import { useOneProduct, useId, useDelete } from "../../hooks"
 import DeleteModal from '../../components/DeleteModal'
 import { useState } from "react"
+import Rating from "../../components/Rating"
 
 const ProductInfo = () => {
     const id = useId()
@@ -45,6 +46,9 @@ const ProductInfo = () => {
             <div>
                 <button onClick={() => openDeleteModal(id)}>Delete</button>
             </div>
+
+            <Rating />
+
             {isModalVisible && (
                 <DeleteModal productId={productIdToDelete} isVisible={isModalVisible} onClose={() => setIsModalVisible(false)} onDelete={handleDelete} />
             )}
